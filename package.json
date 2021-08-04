@@ -1,0 +1,11 @@
+{
+  "name": "oh_my_food",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/base.scss:.public/css/style.css"
+  },
+  "author": "",
+  "license": "ISC"
+}
