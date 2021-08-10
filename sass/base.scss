@@ -1,17 +1,25 @@
 // général
-
+$light-gray:rgb(245, 245, 245);
+$primary:#9356DC;
+$secondary:#FF79DA;
+$tertiary:#99E2D0;
+html
+// {
+//     font-size: 62.5%; /* Ré-équilibrage du Rem face au Pixel pour des calculs simples */
+// }
 body {
     margin: 0 auto;
     min-width: 335px;
     max-width: 1600px;  
     min-height: 100vh;
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    main{ 
+        flex-grow:1;            
+    }   
 }
-main{ 
-    flex-grow:1;     
-    text-align: center;
-}
+
 // mixin
 
 @mixin responsive ($breakpoints){
@@ -24,7 +32,7 @@ main{
         @media screen and (min-width:990px) {
            @content;
         }        
-     }    
+     }            
 }
 @mixin border($colour){
     border: 1px solid $colour;
@@ -33,41 +41,115 @@ main{
         flex-flow: row wrap;
         justify-content: space-around;
 }
-// bases
+@mixin shadow {
+    box-shadow: -2px 0 6px rgb(236, 236, 236),2px 7px 6px rgb(236, 236, 236); 
+}
+       
 
+// bases
+h1{
+    font-family: 'Shrikhand', cursive;
+    font-size: 28px;
+    font-weight: normal;
+}
 h2{
-    width: 100%;
-    @include border(orange);
+    width: 100%;        
+    // @include border(orange);
 }
 header{
     height: 63px;
     width: 100%;
-    @include border(black);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgb(184, 184, 184);
+    z-index: 1;
+    
+    .header__logo{        
+        width: 43%;
+        margin-top: 10px;
+    }
 }
 ul{
     padding: 0;
-    li{
-        @include border(gray);
+    li{        
         list-style: none;
     }
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.discovery__title{
+    font-family: 'Roboto', sans-serif;
+    font-weight:bold;
+    font-size: 24px;
+    width: 70%;
+    margin:auto;
+    padding-top: 35px;
+}
+.steps__title{
+    align-self: start;
+}
+.discovery__txt {
+    width: 90%;
+    margin:13px auto;
+    font-size: 18px;
+    color: gray;
+
+}
+.background-img{
+    width: 375px;
 }
 // page_accueil
 
 .btn{
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    min-width: 185px;
     height: 50px;
+    color: white;
+    font-size: 15px;
+    background:linear-gradient($secondary, $primary);
+    border-radius: 30px;
+    padding: 0 20px;
+    border:none;
+    margin-top: 17px;
+    box-shadow: -2px 0 7px rgb(206, 206, 206),2px 6px 7px rgb(206, 206, 206);
+    &:hover{        
+        background: linear-gradient(
+            0deg,
+            lighten($primary, 5%) 0%,            
+            lighten($secondary, 5%) 80%);
+        box-shadow: -3px 3px 5px rgb(139, 139, 139),3px 3px 5px rgb(139, 139, 139);
+        
+    }
 }
 .intro{
     width: 100%;
     max-height: 777px;
-    @include border(black);
     &__location{
         height: 50px;
-        text-align: center;
-        @include border(red);
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+        background-color: rgb(236, 236, 236);
+        color: rgb(59, 59, 59);
+        i{
+            padding: 0 20px 0 70px;
+        }
+        .location__search{
+            border: none;
+            background-color: inherit;
+            font-weight: bold;                      
+            &:focus{
+                outline: none;
+            }
+        }
     }
     &__discovery{
         height: 287px;
-        @include border(red);
+        background-color: $light-gray;
+        text-align: center;
     }
     &__steps{
         display: flex;
@@ -75,22 +157,43 @@ ul{
         justify-content: space-around;
         align-items: center;
         max-height: 441px;
-        padding: 33px 0;
-        @include border(red);
+        padding: 30px 20px 45px 20px;            
         @include responsive(tablet){
             @include flex;           
+        }
+        >h2{
+            margin-bottom: 25px;
         }
         .steps__item{
             width: 335px;
             height: 72px;
-            border: 1px solid gray;
+            background-color: $light-gray;
+            border-radius: 20px;
             margin-bottom: 25px;
-            @include responsive(tablet){
-                max-width: 200px;
+            display: flex;
+            align-items: center;
+            color: gray;
+            @include shadow;          
+            &:hover{
+                background-color: #f0e9fa;
+                color: $primary;
             }
-            @include responsive(desktop){
-                max-width: 300px;
-            }
+            span{
+                color: white;
+                background-color: $primary;
+                padding: 3px 8px;
+                border-radius: 100%;
+                margin-left: -10px;
+            } 
+            i{
+                margin: 0 20px;
+                color: inherit;
+                font-size: 20px;                     
+            }          
+            p{                
+                font-weight: 500;
+                color: initial; 
+            }           
         }
     }
 }
@@ -99,84 +202,266 @@ ul{
     display: flex;
     flex-direction: column;
     align-items: center; 
-    padding: 59px 0;
-    max-height: 1226px;
+    padding: 35px 20px 45px 20px;
+    background-color: $light-gray;
     box-sizing: border-box;
-    @include border(black);
     @include responsive(tablet){
-        @include flex;
+        @include flex;        
+    }
+    @include responsive(desktop){
+        max-width: 1100px;
+        margin: auto;
+        border-radius: 15px 15px 0 0;
     }
     &__prev{
         width: 335px;
         height: 251px;
-        margin-bottom: 18px;
-        box-sizing: border-box;
-        @include border(red);
+        margin-bottom: 20px;
+        box-sizing: border-box;         
         @include responsive(tablet){
             width: 335px;
             margin:20px; 
         }
         @include responsive(desktop){
-            width: 225px;
-            margin:10px; 
-        }
-               
+            width:clamp(225px 30% 500px);
+            margin:20px 5%; 
+        }      
     }
 }
+.new{
+    background-color: $tertiary;
+    font-size: 14px;
+    color: #357c6a;
+    font-weight: 500;
+    padding:3px 12px;
+    border-radius: 2px;
+    transform: translate(205px, -223px);
+    position: absolute;
+}
 .prev {
-    img {
-        width: 100%;
-        height: 174px;
+    a{
+        display: block;
+        overflow: hidden;
+        border-radius: 15px;
+        height: 265px;              
     }
-    &__caption{
+    img {
+        width: 103%;
+        min-height: 175px;
+        border-radius: 20px 20px 0 0 ;
+        object-fit: cover; 
+        object-position: -5px -55px;
+        @include responsive(desktop){
+            object-position: 0;
+        }       
+    }
+    .img2{
+        object-position: -5px -157px;
+        max-height: 175px;
+        @include responsive(desktop){
+            object-position: 0;
+            
+        }       
+    }
+    .img4{
+        object-position: -5px -60px;
+    }
+    .cap2{
+        transform: translate(0,-3px);
+        @include shadow;
+        // @include responsive(desktop){
+        //     transform: translate(0, -58px);            
+        // }       
+    }
+    .cap4{
+        transform: translate(0,-65px);
+        // @include responsive(desktop){
+        //     transform: translate(0, -58px);            
+        // }       
+    }
+    &__caption{        
         width: 100%;
         height: 77px;
-        transform: translate(0,-4px);
-        @include border(blue);        
+        transform: translate(0,-58px);
+        background-color: white;
+        border-radius:0 0 15px 15px;
+        box-sizing: border-box;
+        line-height:23px ;
+        padding: 15px;
+        @include shadow; 
+        h3{
+            margin: 0;
+        }
+        p{
+            margin: 0;
+            font-weight: 300;
+        }
+        i{
+           font-size: 24px;
+           position: relative;
+           top: -40px; 
+           right: -270px; 
+           @include responsive(desktop){
+            right: -170px;
+           }         
+        }        
     }
 }
 .footer{
     width: 100%;
     max-width: 1600px;
     height: 197px;
-    @include border(black);    
+    background-color: rgb(61, 61, 61);
+    color: white;
+    padding-left: 20px;
+    box-sizing: border-box;
+    &__title{
+        color: white;
+        font-family: 'Shrikhand', cursive;
+        font-size: 18px;
+        font-weight: normal;
+    }    
     &__list{
         display: flex;
-        flex-direction: column;
-        @include border(red);
+        flex-direction: column;        
         @include responsive(tablet){
             @include flex;
+        }                    
+    }    
+} 
+
+.list__link{
+    line-height: 26px;
+    >i{
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    .ust{
+        margin-right: 10px;
+    }
+}
+.linkb{
+    font-weight: 500;
+}
+// page à_la_française
+.header-menu{
+    i{
+        font-size: 20px;
+        position: absolute;
+        left: 25px;
+        top: 23px;
+        color: rgb(70, 70, 70);
+        @include responsive(desktop){
+            position: relative;
+            left: -250px;
         }
     }
-} 
-// page à_la_française
-
+}
+.menu__title{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px 0 17px;
+    box-sizing: border-box;
+    >i{
+        font-size: 24px;
+    }
+}
+.main2{
+    z-index: 2;
+    background-color: $light-gray;
+    @include responsive(tablet){
+        background-image:url( ../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg);
+        background-size: cover;
+        background-position: center center;
+    } 
+    .btn{
+        margin: 20px auto 27px auto;
+        @include responsive(tablet){       
+            flex-basis: 40%;
+        }
+    }    
+}
+.background-img{
+    display: block;
+    margin: auto;
+    object-position: -20px 0;
+    width: clamp(375px, 110%, 1200px);
+    max-height:400px ;
+    object-fit: cover;       
+    @include responsive(tablet){
+        object-position: 120%;
+        width: 80%;        
+        padding: 0 6px 0 6px;
+        background: linear-gradient($primary,$secondary); 
+    }
+}
 .menu {
     display: flex;
     flex-direction: column;
     align-items: center;
-    @include border(black);
+    background-color: $light-gray; 
+    border-radius: 40px 40px 0 0;
+    transform: translate(0, -55px);
     @include responsive(tablet){
-        @include flex;        
+        @include flex;
+        width: 96%;
+        margin: auto; 
+        border-radius: 40px;       
+    }
+    @include responsive(desktop){
+        width: 90%;
     }
     &__title{
         width: 100%;
     }    
-    &__list{
-        @include border(red);
+    &__list{       
         @include responsive(tablet){
             width: clamp(200px, 23%, 350px);
             box-sizing: border-box;
         }                
-        >li {
-            height: 68px;
+        >li { 
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;           
             width: 350px;
             margin-bottom: 14px;
             @include responsive(tablet){
-                width: 100%;
-                min-height: 130px;
+                width: 100%;                
                 margin-bottom: 30px;
-            }                
+            } 
+            >h2{
+                font-size:16px ;
+                font-weight: 100;
+                margin: 0 0 5px 0;                
+            }
+            .bordersmall{
+                width:11.5% ;
+                border-bottom:3px solid #99E2D0;
+            }               
         }       
+    }
+}
+.list__item{
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 15px;
+    height: 68px;
+    padding: 12px 20px 15px 12px;
+    @include responsive(tablet){
+        min-height: 130px;
+    }
+    @include shadow;
+    h3{
+        margin: 0;
+        flex-basis: 100%;
+    }
+    p{
+        margin: 4px 0 0 0;
+    }
+    span{
+        font-weight: bold;
+        margin-top: 4px;
     }
 }
