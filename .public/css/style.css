@@ -285,7 +285,7 @@ a {
   right: -243px;
   color: white;
   font-size: 22px;
-  transition: color 2000ms;
+  transition: color 1000ms;
 }
 .prev__caption .fas:hover {
   background: linear-gradient(#9356DC, #FF79DA);
@@ -356,20 +356,20 @@ a {
   padding: 5px 30px 0 17px;
   box-sizing: border-box;
 }
-.menu__title > i {
+.menu__title .far {
   font-size: 24px;
 }
 .menu__title .fas {
   position: relative;
-  top: 0;
-  right: -139px;
+  right: 27px;
+  top: -1px;
   color: white;
   font-size: 22px;
   transition: color 1000ms;
 }
 .menu__title .fas:hover {
   background: linear-gradient(#9356DC, #FF79DA);
-  background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
 }
 
