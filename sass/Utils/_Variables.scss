@@ -1,0 +1,11 @@
+$light-gray:rgb(245, 245, 245);
+$primary:#9356DC;
+$secondary:#FF79DA;
+$tertiary:#99E2D0;
+$degrade:linear-gradient($secondary, $primary);
+$num-li:9;
+$anim-dur: 1500ms;
+$anim-delay: ($anim-dur/$num-li);
+$num-c:8;
+$anim-dur-c:1500ms;
+$anim-delay-c:($anim-dur-c/$num-c);

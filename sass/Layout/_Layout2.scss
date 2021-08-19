@@ -1,0 +1,244 @@
+.header-menu{
+    i{
+        font-size: 20px;
+        position: absolute;
+        left: 25px;
+        top: 23px;
+        color: rgb(70, 70, 70);
+        @include responsive(desktop){
+            position: relative;
+            left: -250px;
+        }
+    }
+}
+.mainA{
+    @include responsive(tablet){
+        background-image:url( ../../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+}
+.mainB{
+    @include responsive(tablet){
+        background-image:url( ../../../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+}
+.mainC{
+    @include responsive(tablet){
+        background-image:url( ../../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+}
+.mainD{
+    @include responsive(tablet){
+        background-image:url( ../../../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+}
+.main2{
+    z-index: 2;
+    background-color: $light-gray;
+    
+    img {
+        display: block;
+        margin: auto;
+        object-position: -20px 0;
+        width: clamp(375px, 110%, 1200px);
+        max-height:400px ;
+        object-fit: cover;       
+        @include responsive(tablet){
+            object-position: 120%;
+            width: 80%;        
+            padding: 0 6px 0 6px;
+            background: linear-gradient($primary,$secondary); 
+        }
+    }
+    .btn{
+        margin: 20px auto 27px auto;
+        @include responsive(desktop){       
+            flex-basis: 40%;
+        }
+    }    
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $light-gray; 
+    border-radius: 40px 40px 0 0;
+    transform: translate(0, -55px);
+    @include responsive(tablet){
+        width: 90%;
+        margin: auto; 
+        border-radius: 40px;    
+    }
+    @include responsive(desktop){
+        @include flex;
+    }
+    &__title{
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 30px 0 17px;
+        box-sizing: border-box;
+        .far{
+            font-size: 24px;        
+        }
+        .fas {        
+            position: relative;
+            right: 27px;
+            top: -1px;        
+            color: white;        
+            font-size: 22px;
+            transition: color 1000ms;        
+            &:hover{
+                background:linear-gradient($primary, $secondary);            
+                -webkit-background-clip: text;
+                color:transparent;
+            }  
+        }  
+    } 
+    .list--1 {
+        @include responsive(tablet){
+            align-self: start;
+            margin-left: 7%;
+        }
+    }
+    .list--3{
+        @include responsive(tablet){
+            align-self: end;
+            margin-right: 7%;
+        }
+    }
+    // décalage des ul version tablette
+}
+
+.list {
+    @include responsive(desktop){
+        width: clamp(200px, 23%, 300px);
+        box-sizing: border-box;
+    } 
+    >li { 
+        display: flex;
+        flex-flow: row nowrap;
+        width: 350px;
+        margin-bottom: 14px;
+        @include responsive(tablet){
+            width: 450px;
+        }
+        @include responsive(desktop){
+            width: 100%;                
+            margin-bottom: 30px;
+        }    
+        h2{
+            font-size:16px ;
+            font-weight: 100;
+            margin: 0 0 5px 0;
+        }
+        .bordersmall{
+            width:40px ;
+            border-bottom:3px solid #99E2D0;
+        }               
+    }            
+}
+
+.list__item{ 
+    overflow: hidden;   
+    background-color: white;
+    border-radius: 15px;
+    height: 68px;
+    cursor: pointer;
+    opacity: 0;
+    @include shadow;
+    animation: fadein $anim-dur forwards;
+    @for $i from 1 through $num-li {
+        &--#{$i} {
+            animation-delay: $anim-delay * $i;
+        }
+    } 
+    @include responsive(desktop){
+        min-height: 130px;
+    }
+    .txt{
+        display: flex;
+        flex-wrap: wrap;
+        width: 350px;
+        align-items: center;
+        overflow: hidden;           
+        padding: 12px 0 15px 12px;
+        @include responsive(desktop){
+            min-width: 100px;
+        }
+        &:hover{
+            + .anim {
+                animation: check 500ms forwards ease-in;
+                >.check > i {
+                    animation: rot 500ms forwards ease-in;
+                }
+            }
+        }   
+        h3{
+            margin: 0;                
+            font-weight: 500;
+            font-size: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex-basis: 100%;
+            @include responsive(desktop){
+                text-overflow: initial;
+                white-space: pre-wrap;
+            }
+        } 
+        p{
+            font-weight: 300;
+            font-size: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin: 5px 0 0 0;
+            @include responsive(desktop){
+                text-overflow: initial;
+                white-space: pre-wrap;
+            }
+        }
+    }   
+    .anim{
+        display: flex;
+        flex-flow: row nowrap;
+        transform: translate(58px);
+        &:hover{
+            animation: check 500ms forwards ease-in;
+            >.check > i {
+                animation: rot 500ms forwards ease-in;
+            }
+        }
+        span{
+            margin-right: 15px;
+            margin-top: 38px;
+            font-weight: 500;
+            font-size: 15px;
+            @include responsive(desktop){
+                margin-top: 85px;
+            }
+        }
+        .check {
+            display: flex;
+            min-width: 58px;
+            height: 100%;
+            background-color: $tertiary;
+            color: white;
+            font-size: 20px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 15px 15px 0;
+        }
+    }    
+} 

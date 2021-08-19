@@ -1,0 +1,266 @@
+#bloc-page{
+    filter: blur(25px);
+    animation: blur 2500ms forwards;
+}
+header{
+    height: 63px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgb(184, 184, 184);
+    z-index: 1;
+    // z-index pour l'ombre
+    .header__logo{        
+        width: 43%;
+        margin-top: 10px;
+    }
+}
+
+
+.intro{
+    width: 100%;
+    max-height: 777px;
+    .location{
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+        background-color: rgb(236, 236, 236);
+        color: rgb(59, 59, 59);
+        i{
+            padding: 0 20px 0 70px;
+        }
+        &__search{
+            border: none;
+            background-color: inherit;
+            font-weight: bold;                      
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .discovery{
+        height: 287px;
+        background-color: $light-gray;
+        text-align: center;
+        &__title{
+            font-family: 'Roboto', sans-serif;
+            font-weight:bold;
+            font-size: 24px;
+            width: 70%;
+            margin:auto;
+            padding-top: 35px;
+        }
+        &__txt {
+            width: 90%;
+            margin:13px auto;
+            font-size: 18px;
+            color: gray;
+        }
+    }
+    .steps{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        max-height: 441px;
+        padding: 30px 20px 45px 20px;            
+        @include responsive(tablet){
+            @include flex;           
+        }
+        &__title{
+            align-self: start;
+            margin-bottom: 25px;
+        }
+        &__item{
+            width: 335px;
+            height: 72px;
+            background-color: $light-gray;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            color: gray;
+            @include shadow;          
+            &:hover{
+                background-color: #f0e9fa;
+                color: $primary;
+            }
+            span{
+                color: white;
+                background-color: $primary;
+                padding: 3px 8px;
+                border-radius: 100%;
+                margin-left: -10px;
+            } 
+            i{
+                margin: 0 20px;
+                color: inherit;
+                font-size: 20px;                     
+            }          
+            p{                
+                font-weight: 500;
+                color: initial; 
+            }           
+        }
+    }
+}
+
+.restaurant{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 35px 20px 45px 20px;
+    background-color: $light-gray;
+    box-sizing: border-box;
+    @include responsive(tablet){
+        @include flex;        
+    }
+    @include responsive(desktop){
+        max-width: 1100px;
+        margin: auto;
+        border-radius: 15px 15px 0 0;
+    }
+}
+
+
+.preview {
+    width: 335px;
+    height: 251px;
+    margin-bottom: 20px;
+    box-sizing: border-box;         
+    @include responsive(tablet){
+        width: 335px;
+        margin:20px; 
+    }
+    @include responsive(desktop){
+        width:clamp(225px, 30%, 500px);
+        margin:20px 5%; 
+    }  
+    a{
+        display: block;
+        overflow: hidden;
+        border-radius: 15px;
+        height: 265px;              
+    }
+    img {
+        width: 103%;
+        min-height: 175px;
+        border-radius: 20px 20px 0 0 ;
+        object-fit: cover; 
+        object-position: -5px -55px;
+        @include responsive(desktop){
+            object-position: 0;
+        }       
+    }
+    .img2{
+        object-position: -5px -157px;
+        max-height: 175px;
+        @include responsive(desktop){
+            object-position: 0;            
+        }       
+    }
+    .img4{
+        object-position: -5px -60px;
+    }
+    &__caption{        
+        width: 100%;
+        height: 77px;
+        transform: translate(0,-58px);
+        background-color: white;
+        border-radius:0 0 15px 15px;
+        box-sizing: border-box;
+        line-height:23px ;
+        padding: 15px;
+        @include shadow; 
+        h3{
+            margin: 0;
+        }
+        p{
+            margin: 0;
+            font-weight: 300;
+        }
+        .far{
+           font-size: 24px;
+           position: relative;
+           top: -40px; 
+           right: -270px; 
+        }
+        .fas  {
+            position: relative;
+            top:-41px;
+            right: -243px;            
+            color: white;              
+            font-size: 22px;             
+            transition: color 1000ms;
+            &:hover{ 
+                background:linear-gradient($primary,$secondary);
+                -webkit-background-clip: text;
+                color: transparent;
+            } 
+        } 
+        .new{
+            background-color: $tertiary;
+            font-size: 14px;
+            color: #357c6a;
+            font-weight: 500;
+            padding:3px 12px;
+            border-radius: 2px;
+            transform: translate(179px, -223px);
+            position: absolute;
+        }     
+    }
+    .cap2{
+        transform: translate(0,-3px);
+        @include shadow;              
+    }
+    .cap4{
+        transform: translate(0,-65px);
+    }
+}
+
+.footer{
+    width: 100%;
+    max-width: 1600px;
+    height: 197px;
+    background-color: rgb(61, 61, 61);
+    color: white;
+    padding-left: 20px;
+    box-sizing: border-box;
+    &__title{
+        color: white;
+        font-family: 'Shrikhand', cursive;
+        font-size: 18px;
+        font-weight: normal;
+        margin-top: 0;
+        padding-top: 24px;
+        @include responsive(tablet){
+            font-size: 24px;
+            text-align: center;
+        }
+    }    
+    &__list{
+        display: flex;
+        flex-direction: column;        
+        @include responsive(tablet){
+            @include flex;
+        } 
+        >li{
+            line-height: 26px;
+            >i{
+                font-size: 14px;
+                margin-right: 5px;
+            }
+            .ust{
+                margin-right: 10px;
+            }
+        } 
+        .link{
+            font-weight: 500;
+        }                  
+    } 
+} 
+
+
+

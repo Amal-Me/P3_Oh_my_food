@@ -1,0 +1,99 @@
+.loading{
+    z-index: 10;
+    position:absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    bottom: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Shrikhand', cursive;
+    font-size: 32px;
+    font-weight: normal;
+    perspective: 700px;
+    animation: opac 2000ms 3s forwards; 
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cube{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        width: 50px;
+        height: 50px;
+        transform-style: preserve-3d;
+        animation: animload $anim-dur-c forwards;
+        @for $i from 1 through $num-c {
+            &--#{$i} {
+                animation-delay: $anim-delay-c * $i;
+            }
+        } 
+        .c1{
+            @include side (0deg);
+        }
+        .c2{
+            @include side (90deg);
+        }
+        .c3{
+            @include side (180deg);
+        }
+        .c4{
+            @include side (270deg);
+        }
+    }
+    .cube--1{
+        background-color: $primary;
+    }
+    .cube--2{
+        background-color:#a174d8
+    }
+    .cube--3{
+        background-color:$secondary;
+    }
+    .cube--4{
+        background-color:#f8afe3
+    }
+    .cube--5{
+        background-color:$tertiary;
+    }
+    .cube--6{
+        background-color:#a9e0d3;
+        z-index: 2;
+    }
+    .cube--7{
+        background-color:#b7dfd5;
+        z-index: 1;
+    }
+    .cube--8{
+        background-color:#c6ddd7
+    }
+}
+
+
+.btn{
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    min-width: 185px;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+    background:linear-gradient($secondary, $primary);
+    border-radius: 30px;
+    padding: 0 20px;
+    border:none;
+    margin-top: 17px;
+    box-shadow: -2px 0 7px rgb(206, 206, 206),2px 6px 7px rgb(206, 206, 206);        
+    transition:all 500ms;   
+    &:hover{        
+        background: linear-gradient(
+            0deg,
+            lighten($primary, 5%) 0%,            
+            lighten($secondary, 5%) 80%);
+        box-shadow: -3px 3px 5px rgb(139, 139, 139),3px 3px 5px rgb(139, 139, 139);
+    }
+}

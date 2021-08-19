@@ -1,0 +1,74 @@
+@keyframes opac{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform:scale(0);
+    }
+}
+@keyframes animload {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-630deg);
+        transform-origin: center center (0);
+    }
+}
+@keyframes fadein {
+    0%{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+// animation apparition progressive deuxieme page 
+
+@keyframes blur {
+    0%{
+        filter: blur(25px);
+    }
+    25%{
+        filter: blur(15px);
+    }
+    40%{
+        filter: blur(10px);
+    }
+    50%{
+        filter: blur(8px);
+    }
+    75%{
+        filter: blur(6px);
+    }
+    85%{
+        filter: blur(4px);
+    }
+    90%{
+        filter: blur(2px);
+    }
+    100%{
+        filter: blur(0);
+    }
+}
+
+@keyframes check {
+    0%{
+        transform: translate(58px);
+    }
+    100%{
+        transform: translate(0px);
+    }
+}
+@keyframes rot {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
