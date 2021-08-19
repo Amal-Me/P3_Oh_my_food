@@ -1,0 +1,33 @@
+@mixin side ($deg){
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotateX($deg) translateZ(25px);
+    background:inherit;
+}
+@mixin responsive ($breakpoints){
+    @if $breakpoints==tablet {          
+       @media screen and (min-width:651px) {
+          @content;
+       }        
+    } 
+    @if $breakpoints==desktop {          
+        @media screen and (min-width:990px) {
+           @content;
+        }        
+     }            
+}
+@mixin border($colour){
+    border: 1px solid $colour;
+}
+@mixin flex {
+        flex-flow: row wrap;
+        justify-content: space-around;
+}
+@mixin shadow {
+    box-shadow: -2px 0 6px rgb(236, 236, 236),2px 7px 6px rgb(236, 236, 236); 
+}

@@ -1,0 +1,30 @@
+h1{
+    font-family: 'Shrikhand', cursive;
+    font-size: 28px;
+    font-weight: normal;
+}
+h2{
+    width: 100%; 
+}
+ul{
+    padding: 0;
+    li{        
+        list-style: none;
+    }
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+body {
+    margin: 0 auto;
+    min-width: 335px;
+    max-width: 1600px;  
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    main{ 
+        flex-grow:1; 
+    } 
+}
