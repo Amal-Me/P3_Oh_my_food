@@ -396,12 +396,6 @@ header .header__logo {
     margin: 20px;
   }
 }
-@media screen and (min-width: 990px) {
-  .preview {
-    width: clamp(225px, 30%, 500px);
-    margin: 20px 5%;
-  }
-}
 .preview a {
   display: block;
   overflow: hidden;
@@ -415,19 +409,9 @@ header .header__logo {
   object-fit: cover;
   object-position: -5px -55px;
 }
-@media screen and (min-width: 990px) {
-  .preview img {
-    object-position: 0;
-  }
-}
 .preview .img2 {
   object-position: -5px -157px;
   max-height: 175px;
-}
-@media screen and (min-width: 990px) {
-  .preview .img2 {
-    object-position: 0;
-  }
 }
 .preview .img4 {
   object-position: -5px -60px;

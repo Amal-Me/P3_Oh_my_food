@@ -134,10 +134,6 @@ header{
         width: 335px;
         margin:20px; 
     }
-    @include responsive(desktop){
-        width:clamp(225px, 30%, 500px);
-        margin:20px 5%; 
-    }  
     a{
         display: block;
         overflow: hidden;
@@ -150,16 +146,10 @@ header{
         border-radius: 20px 20px 0 0 ;
         object-fit: cover; 
         object-position: -5px -55px;
-        @include responsive(desktop){
-            object-position: 0;
-        }       
     }
     .img2{
         object-position: -5px -157px;
         max-height: 175px;
-        @include responsive(desktop){
-            object-position: 0;            
-        }       
     }
     .img4{
         object-position: -5px -60px;
