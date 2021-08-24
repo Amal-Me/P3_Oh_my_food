@@ -7,6 +7,7 @@
         opacity: 0;
         transform:scale(0);
     }
+    // rétrécissement et disparition du loading spinner
 }
 @keyframes animload {
     0% {
@@ -16,6 +17,7 @@
         transform: rotateX(-630deg);
         transform-origin: center center (0);
     }
+    // rotation un tour 3/4 des cubes pour finir sur la face voulue et déplacement de l'axe de rotation au centre du cube et non à sa base
 }
 @keyframes fadein {
     0%{
@@ -26,9 +28,8 @@
         opacity: 1;
         transform: translateY(0);
     }
+    // apparition progressive des plats deuxieme page 
 }
-// animation apparition progressive deuxieme page 
-
 @keyframes blur {
     0%{
         filter: blur(25px);
@@ -54,6 +55,7 @@
     100%{
         filter: blur(0);
     }
+    // diminution progressive du flou 
 }
 
 @keyframes check {
@@ -63,6 +65,7 @@
     100%{
         transform: translate(0px);
     }
+    // coulissement de la coche verte
 }
 @keyframes rot {
     0%{
@@ -71,4 +74,5 @@
     100%{
         transform: rotate(360deg);
     }
+    // rotation de l'icone de la coche
 }

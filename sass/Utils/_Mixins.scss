@@ -8,6 +8,7 @@
     right: 0;
     transform: rotateX($deg) translateZ(25px);
     background:inherit;
+    // position de base des faces des cubes, déplacement sur la profondeur pour les éloigner de leur axe de rotation d'origine afin qu'ils ne tournent pas sur eux-meme ensuite rotation des faces avec des angles variables, ce qui forme le cube.
 }
 @mixin responsive ($breakpoints){
     @if $breakpoints==tablet {          

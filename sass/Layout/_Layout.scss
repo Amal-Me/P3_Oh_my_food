@@ -1,6 +1,7 @@
 #bloc-page{
     filter: blur(25px);
     animation: blur 2500ms forwards;
+    // flou d'arrière plan pendant l'animation du loading spinner
 }
 header{
     height: 63px;
@@ -189,6 +190,7 @@ header{
                 -webkit-background-clip: text;
                 color: transparent;
             } 
+            // superposition d'un coeur sur un autre plus grand qui par effet de transparence va faire apparaitre le background voulu en conservant la bordure du coeur du dessous à la bonne épaisseur pour respecter la maquette
         } 
         .new{
             background-color: $tertiary;

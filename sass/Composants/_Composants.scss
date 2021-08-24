@@ -14,6 +14,7 @@
     font-weight: normal;
     perspective: 700px;
     animation: opac 2000ms 3s forwards; 
+    // disparition du loading spinner
     div{
         display: flex;
         justify-content: center;
@@ -28,10 +29,12 @@
         height: 50px;
         transform-style: preserve-3d;
         animation: animload $anim-dur-c forwards;
+        // rotation des 8 cubes
         @for $i from 1 through $num-c {
             &--#{$i} {
                 animation-delay: $anim-delay-c * $i;
             }
+            // boucle pour que l'animation soit différée entre chaque cube
         } 
         .c1{
             @include side (0deg);
@@ -45,6 +48,7 @@
         .c4{
             @include side (270deg);
         }
+        // position de départ des faces du cube
     }
     .cube--1{
         background-color: $primary;

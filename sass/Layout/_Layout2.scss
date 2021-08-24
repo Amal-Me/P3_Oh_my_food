@@ -38,6 +38,7 @@
         background-size: cover;
         background-position: center center;
     }
+    // différenciation des main des pages secondaires pour leur associer un background personnalisé
 }
 .main2{
     z-index: 2;
@@ -107,13 +108,13 @@
     } 
     .list--1 {
         @include responsive(tablet){
-            align-self: start;
+            align-self:flex-start;
             margin-left: 7%;
         }
     }
     .list--3{
         @include responsive(tablet){
-            align-self: end;
+            align-self:flex-end;
             margin-right: 7%;
         }
     }
@@ -162,6 +163,7 @@
         &--#{$i} {
             animation-delay: $anim-delay * $i;
         }
+        // boucle pour différer l'apparition des plats
     } 
     @include responsive(desktop){
         min-height: 130px;

@@ -6,6 +6,8 @@ $degrade:linear-gradient($secondary, $primary);
 $num-li:9;
 $anim-dur: 1500ms;
 $anim-delay: ($anim-dur/$num-li);
+// apparition des plats lié à l'animation fadein
 $num-c:8;
 $anim-dur-c:1500ms;
 $anim-delay-c:($anim-dur-c/$num-c);
+// nombre des cubes et temps liés à l'animation animload
